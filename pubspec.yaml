@@ -1,6 +1,6 @@
 name: nearby_connectivity
 description: Flutter plugin for nearby connections (Android)
-version: 0.0.4
+version: 0.0.5
 author: joze.ws11@gmail.com
 homepage: https://github.com/jozews/nearby-connectivity
 

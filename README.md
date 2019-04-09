@@ -57,7 +57,12 @@ Accept connection using the advertise object
           // payload received
           break;
         case TypePayload.transferred:
-          payload being transferred
+          // payload being transferred
           break;
       }
     });
+    
+Send payload
+   
+    Nearby.sendPayloadBytes(idEndpoint: connection.idEndpoint, bytes: bytesPayload);
+
