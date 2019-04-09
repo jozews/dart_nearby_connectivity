@@ -12,4 +12,4 @@
 
 ## 0.0.4
 
-* Adds github link
+* Adds github link and description
