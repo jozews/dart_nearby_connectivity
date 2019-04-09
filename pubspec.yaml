@@ -1,8 +1,8 @@
 name: nearby_connectivity
 description: A new Flutter plugin.
-version: 0.0.3
+version: 0.0.4
 author: joze.ws11@gmail.com
-homepage: https://developers.google.com/nearby/connections/overview
+homepage: https://github.com/jozews/nearby-connectivity
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

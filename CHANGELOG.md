@@ -9,3 +9,7 @@
 ## 0.0.3
 
 * Updated CHANGELOG.md
+
+## 0.0.4
+
+* Adds github link
