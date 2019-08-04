@@ -17,3 +17,7 @@
 ## 0.0.5
 
 * Adds sample code in README.md
+
+## 0.0.6
+
+* Adds example

@@ -6,11 +6,10 @@ Following example automatically connects two devices.
 
 Start advertising
 
-    NearbyConnectivity.startAdvertising(name: name, idService: idService).listen((advertise) {
+    NearbyConnectivity.startAdvertising(name: name, idService: idService).listen((FFadvertise) {
       switch (advertise.type) {
         case TypeLifecycle.initiated:
-          acceptConnection(advertise);
-          // you are now connected
+          // accept connection here
           break;
         case TypeLifecycle.result:
           break;
@@ -25,7 +24,7 @@ Start discovering
     NearbyConnectivity.startDiscovering(idService: idService).listen((discovery) {
       switch (discovery.type) {
         case TypeDiscovery.found:
-          requestConnection(discovery);
+          // request connection here
           break;
         case TypeDiscovery.lost:
           break;
@@ -38,8 +37,7 @@ Request connection using the discovery object
     NearbyConnectivity.requestConnection(idEndpoint: discovery.idEndpoint).listen((lifecycle) {
       switch (lifecycle.type) {
         case TypeLifecycle.initiated:
-          acceptConnection(lifecycle, isDiscoverer: true);
-          // you are now connected
+          // accept connection here
           break;
         case TypeLifecycle.result:
           break;

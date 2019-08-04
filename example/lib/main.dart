@@ -30,10 +30,67 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Nearby connectivity'),
         ),
         body: Center(),
       ),
     );
+  }
+
+  startAdvertising() {
+    NearbyConnectivity.startAdvertising(name: "name", idService: "id").listen((advertise) {
+      switch (advertise.type) {
+        case TypeLifecycle.initiated:
+          acceptConnection(advertise);
+          // you are now connected
+          break;
+        case TypeLifecycle.result:
+          break;
+        case TypeLifecycle.disconnected:
+        // you are now disconnected
+          break;
+      }
+    });
+  }
+
+  startDiscovering() {
+    NearbyConnectivity.startDiscovering(idService: "id").listen((discovery) {
+      switch (discovery.type) {
+        case TypeDiscovery.found:
+          requestConnection(discovery);
+          break;
+        case TypeDiscovery.lost:
+          break;
+      }
+    });
+  }
+
+  requestConnection(Discovery discovery) {
+    NearbyConnectivity.requestConnection(idEndpoint: discovery.idEndpoint).listen((lifecycle) {
+      switch (lifecycle.type) {
+        case TypeLifecycle.initiated:
+          acceptConnection(lifecycle);
+          // you are now connected
+          break;
+        case TypeLifecycle.result:
+          break;
+        case TypeLifecycle.disconnected:
+        // you are now disconnected
+          break;
+      }
+    });
+  }
+
+  acceptConnection(Lifecycle advertise) {
+    NearbyConnectivity.acceptConnection(idEndpoint: advertise.idEndpoint).listen((payload) {
+      switch (payload.type) {
+        case TypePayload.received:
+        // payload received
+          break;
+        case TypePayload.transferred:
+        // payload being transferred
+          break;
+      }
+    });
   }
 }
